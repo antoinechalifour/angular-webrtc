@@ -1,0 +1,31 @@
+{
+  "name": "angular-webrtc",
+  "version": "1.0.0",
+  "description": "Wrapper for WebRTC in angularJS applications.",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antoinechalifour/angular-webrtc"
+  },
+  "keywords": [
+    "webrtc",
+    "angularjs"
+  ],
+  "author": "Antoine Chalifour <antoine.chalifour@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/antoinechalifour/angular-webrtc/issues"
+  },
+  "devDependencies": {
+    "bower": "~1.4.1",
+    "grunt": "~0.4.5",
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-uglify": "~0.9.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

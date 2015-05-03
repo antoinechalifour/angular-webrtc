@@ -1,0 +1,24 @@
+{
+  "name": "angular-webrtc",
+  "version": "0.0.0",
+  "authors": [
+    "Antoine <antoine.chalifour@gmail.com>"
+  ],
+  "description": "Wrapper for WebRTC in angularJS applications.",
+  "main": "gruntfile.js",
+  "keywords": [
+    "webrtc",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15"
+  }
+}
