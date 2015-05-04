@@ -49,8 +49,8 @@ This function converts a blob into a url that you can pass to a video ng-src. It
 
 #### RtcPeer
 RtcPeer is a wrapper for PeerConnection, SessionDescription and IceCandidate Apis.
+
 *more docs coming*
 
 ### Directives
-#### ac-rtc-video
-*in development*
+*coming soon*

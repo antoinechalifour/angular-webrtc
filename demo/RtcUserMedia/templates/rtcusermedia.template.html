@@ -1,0 +1,99 @@
+<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+  <div class="text-center mt+">
+    <span class="fs-display-3 display-block mb++">RtcUserMedia</span>
+  </div>
+  <div class="card">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">How to use</span>
+      <div class="paragraph">
+        <p>
+          RtcUserMedia is a wrapper for the getUserMedia API. It provides a few functions that you can use in your controllers,...
+        </p>
+      </div>
+      <div hljs language="javascript" class="mt+">
+angular.module('your.module', ['ac.angular-webrtc'])
+.controller('your.controller', ['RtcUserMedia', function(RtcUserMedia){
+  // do your stuff in here
+}]);
+      </div>
+    </div>
+  </div>
+
+  <div class="card m+">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">getUserMedia()</span>
+      <span class="fs-display-1 display-block mt+ mb+">Description</span>
+      <div class="paragraph">
+        <p>
+          You can get user media (microphone and camera) using RtcUserMedia.getUserMedia(constraints, onSuccess, onError). This wrapper already wraps onSuccess and onError in a $rootScope.$apply() so that you don't need to care about that.
+        </p>
+      </div>
+      
+      <span class="fs-display-1 display-block m+">Example</span>
+      <div class="paragraph">
+        <p>For instance, the piece of code bellow gets the video stream.</p>
+      </div>
+      <div hljs language="javascript" class="mt+">
+app.controller('your.controller', ['RtcUserMedia', function(RtcUserMedia){
+  var vm = this;
+
+  vm.onSuccess = function(stream){
+    vm.stream = stream;
+  };
+
+  vm.onError = function(err){
+    console.dir(err);
+  };
+
+  RtcUserMedia.getUserMedia(
+    {
+      video: true,
+      audio: true
+    },
+    vm.onSuccess,
+    vm.onError
+  );
+}]);
+      </div>
+
+      <span class="fs-display-1 display-block m+">Demo</span>
+      <div class="paragraph">
+        <video ng-src="{{rtcusermedia.streamUrl}}" autoplay></video>
+        <div class="text-center">
+          <button class="btn btn--l btn--raised btn--blue" ng-click="rtcusermedia.getUserMedia({video:true, audio:true})">
+            Default settings
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card m+">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">getStreamUrl()</span>
+      <span class="fs-display-1 display-block mb+ mt+">Description</span>
+      <div class="paragraph">
+        <p>
+          The src propriety of the video tag expects a stream url and getUserMedia returns a blob. That's why RtcUserMedia provides a helper function a convert a blob into a video stream url.
+        </p>
+      </div>
+      
+      <span class="fs-display-1 display-block m+">Example</span>
+      <div class="paragraph">
+        <p>For instance, in you use the ng-src tag in your video, you will need to convert the blob into a stream using :</p>
+      </div>
+      <div hljs language="javascript" class="mt+">
+app.controller('your.module', [..., function(RtcUserMedia){
+  var vm = this;
+
+  vm.onSuccess = function(stream){
+    vm.stream = RtcUserMedia.getStreamUrl(stream);
+  }
+  
+  // Get user media stuff
+  // ...
+}])
+      </div>
+    </div>
+  </div>
+</div>
