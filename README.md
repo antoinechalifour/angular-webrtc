@@ -4,7 +4,9 @@ A simple wrapper for WebRTC in AngularJS applications.
 **in active development**
 
 ## Installation
-Not published yet. So for now :
+`bower install --save ac.angulat-webrtc`
+
+Or :
 
 1. clone the repo
 `git clone https://github.com/antoinechalifour/angular-webrtc`
@@ -51,6 +53,3 @@ This function converts a blob into a url that you can pass to a video ng-src. It
 RtcPeer is a wrapper for PeerConnection, SessionDescription and IceCandidate Apis.
 
 *more docs coming*
-
-### Directives
-*coming soon*
