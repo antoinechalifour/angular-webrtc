@@ -4,7 +4,7 @@ A simple wrapper for WebRTC in AngularJS applications.
 **in active development**
 
 ## Installation
-`bower install --save ac.angulat-webrtc`
+`bower install --save ac.angular-webrtc`
 
 Or :
 
