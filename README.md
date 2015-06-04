@@ -15,7 +15,7 @@ Or :
 ```html
   <script src="<your vendor dir>/dist/angular-webrtc.js" type="text/javascript"></script>
 ```
-3. Inject the `angular-webrtc` in your application.
+3. Inject the `ac.angular-webrtc` module in your application.
 
  ```js
   angular.module('your.module', [
