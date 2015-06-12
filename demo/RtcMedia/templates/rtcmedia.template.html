@@ -12,7 +12,7 @@
       </div>
 
       <div hljs language="html" class="mt+">
-<rtc-media capture="all" streamUri="{{streamUri}}"></rtc-media>
+<rtc-media capture="all" stream-uri="stream"></rtc-media>
       </div>
     </div>
   </div>
@@ -20,6 +20,17 @@
   <div class="card m+">
     <div class="p+">
       <span class="fs-display-2 display-block mb++">Demo</span>
+      <div class="paragraph mb+">
+        <p>
+          You can provide the following attributes :
+        </p>
+        <ul>
+          <li>capture: which can be video, audio, or all</li>
+          <li>stream-uri: to get the uri of your stream</li>
+          <li>stream-blob: to get your stream as a blob</li>
+          <li>error: to get errors</li>
+        </ul>
+      </div>
       <rtc-media capture="all" stream-uri="rtcmedia.stream"></rtc-media>
       <video ng-src="{{rtcmedia.stream}}" autoplay></video>
     </div>
