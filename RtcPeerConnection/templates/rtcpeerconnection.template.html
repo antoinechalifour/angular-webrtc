@@ -1,0 +1,139 @@
+<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+  <div class="text-center mt+">
+    <span class="fs-display-3 display-block mb++">RtcPeer</span>
+  </div>
+  <div class="card">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">How to use</span>
+      <div class="paragraph">
+        <p>
+          RtcPeer is a wrapper for the PeerConnection Api. Through this service, you can access PeerConnection, SessionDescription and IceCandidate.
+        </p>
+      </div>
+
+      <div hljs language="javascript" class="mt+">
+angular.module('your.module', ['ac.webrtc-angular'])
+.controller('your.controller', ['RtcPeer', function(RtcPeer){
+  // do your stuff in here
+}]);
+      </div>
+    </div>
+  </div>
+
+  <div class="card m+">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">PeerConnection</span>
+      <span class="fs-display-1 display-block m+">Description</span>
+      <div class="paragraph">
+        <p>
+          RtcPeer.PeerConnection is a wrapper for the [webkit|moz]RtcPeerConnection API. After you created your PeerConnection object, you can add callbacks just as you would normally do.
+        </p>
+        <p>
+          If you need further information, I suggest you visit the <a href="https://developer.mozilla.org/fr/docs/Web/API/RTCPeerConnection">official documentation</a>.
+        </p>
+      </div>
+
+      <span class="fs-display-1 display-block m+">Example</span>
+      <div hljs language="javascript" class="mt+">
+angular.module('your.module', ['ac.webrtc-angular'])
+.controller('your.controller', ['RtcPeer', function(RtcPeer){
+  var vm = this;
+  var pc_config = // your ice servers,...
+  var pc_contraints = // encryption,... 
+
+  var onaddstream = function(){ ... };
+  var onicecandidate = function(){ ... };
+
+  var pc = vm.pc = new RtcPeer.PeerConnection(pc_config, pc_constraints);
+  pc.onaddstream = onaddstream;
+  pc.onicecandidate = onicecandidate;
+}]);
+      </div>
+    </div>
+  </div>
+
+  <div class="card m+">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">SessionDescription</span>
+      <span class="fs-display-1 display-block m+">Description</span>
+      <div class="paragraph">
+        <p>
+          WebRTC is a offer-answer based system using Session Description Protocol (SDP) as standard for offers and answer.
+          RtcPeer.SessionDescription is a wrapper for the [|moz]RTCSessionDescription.
+        </p>
+        <p>
+          If you need further information I suggest that you visit the <a href="https://developer.mozilla.org/fr/docs/Web/API/RTCSessionDescription">official documentation</a>.
+        </p>
+      </div>
+
+      <span class="fs-display-1 display-block m+">Example</span>
+      <div hljs language="javascript" class="mt+">
+angular.module('your.module', ['ac.webrtc-angular'])
+.controller('your.controller', ['RtcPeer', function(RtcPeer){
+  var vm = this;
+  var signaling = // your signaling channel
+  var pc = // your peer connection object
+
+  var onoffer = function(data){
+    var offer = new RtcPeer.SessionDescription(data.offer);
+    pc.setRemoteDescription(offer);
+
+    // create answer if you want
+    // ...
+  };
+
+  var onanswer = function(data){
+    var answer = new RtcPeer.SessionDescription(data.answer);
+    pc.setRemoteDescription(answer);
+  };
+
+  signaling.on('rtc:offer', onoffer);
+  signaling.on('rtc:answer', onanswer);  
+
+  // your signaling stuff
+  // ...
+}]);
+      </div>
+    </div>
+  </div>
+
+  <div class="card m+">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">IceCandidate</span>
+      <span class="fs-display-1 display-block m+">Description</span>
+      <div class="paragraph">
+        <p>
+          WebRTC uses Interactive Connectivity Establishment (ICE) to connect peers. RtcPeer.IceCandidate is a wrapper for the [|moz]RTCIceCandidate API.
+        </p>
+        <p>
+          If you need further information I suggest that you visit the <a href="http://html5index.org/WebRTC%20-%20RTCIceCandidate.html">official documentation</a>.
+        </p>
+      </div>
+
+      <span class="fs-display-1 display-block m+">Example</span>
+      <div class="paragraph">
+        <p>
+          For instance, when you receive a candidate through you signaling channel, you will need to instantiate a RtcPeer.IceCandidate in order to pass it to your PeerConnection. This piece of code is how you can do it :
+        </p>
+      </div>
+      <div hljs language="javascript" class="mt+">
+angular.module('your.module', ['ac.webrtc-angular'])
+.controller('your.controller', ['RtcPeer', function(RtcPeer){
+  var vm = this;
+  var signaling = // your signaling channel
+  var pc = // your peer connection object
+
+  var onicecandidate = function(data){
+    var candidate = new RtcPeer.IceCandidate(data.candidate);
+    pc.addIceCandidate(candidate);
+  };
+
+  signaling.on('rtc:candidate', onicecandidate);
+
+  // your signaling stuff
+  // ...
+}]);
+      </div>
+    </div>
+  </div>
+</div>
