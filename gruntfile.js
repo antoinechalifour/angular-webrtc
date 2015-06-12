@@ -53,4 +53,6 @@ module.exports = function(grunt){
 
 
   grunt.registerTask('build', ['ngtemplates', 'concat', 'uglify']);
+
+  grunt.registerTask('default', 'build');
 }
