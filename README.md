@@ -24,6 +24,7 @@ Or :
 ```
 
 ## Usage
+More examples and docs : http://antoinechalifour.github.io/angular-webrtc/#/
 ### Services
 As this module is a wrapper for webrtc, it provides a few services so that you don't need to care whether you use Chrome or Firefox (other browsers are not supported).
 
