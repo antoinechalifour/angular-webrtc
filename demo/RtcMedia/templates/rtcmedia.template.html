@@ -1,0 +1,27 @@
+<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+  <div class="text-center mt+">
+    <span class="fs-display-3 display-block mb++">RtcMedia</span>
+  </div>
+  <div class="card">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">How to use</span>
+      <div class="paragraph">
+        <p>
+          RtcPeer is a directive the enables you to get streams from a directive without having to call getUserMedia yourself.
+        </p>
+      </div>
+
+      <div hljs language="html" class="mt+">
+<rtc-media capture="all" streamUri="{{streamUri}}"></rtc-media>
+      </div>
+    </div>
+  </div>
+
+  <div class="card m+">
+    <div class="p+">
+      <span class="fs-display-2 display-block mb++">Demo</span>
+      <rtc-media capture="all" stream-uri="rtcmedia.stream"></rtc-media>
+      <video ng-src="{{rtcmedia.stream}}" autoplay></video>
+    </div>
+  </div>
+</div>
