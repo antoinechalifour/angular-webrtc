@@ -5,7 +5,7 @@
     "Antoine <antoine.chalifour@gmail.com>"
   ],
   "description": "Wrapper for WebRTC in angularJS applications.",
-  "main": "gruntfile.js",
+  "main": "dist/angular-webrtc.js",
   "keywords": [
     "webrtc",
     "angularjs"
